@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark" data-bs-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Portail pédagogique de l'enseignant pour les classes de lycée : 2e Sciences, 3e Techniques, 3e STI et 4e Sciences. Accès direct aux cours et ressources.">
+  <meta name="author" content="Professeur de Lycée">
+  <title>Portail Pédagogique • Cours du Lycée</title>
+
+  <!-- Feuilles de style locales -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <!-- Halos lumineux d'ambiance en arrière-plan -->
+  <div class="ambient-glow" aria-hidden="true">
+    <div class="glow-orb glow-1"></div>
+    <div class="glow-orb glow-2"></div>
+    <div class="glow-orb glow-3"></div>
+  </div>
+
+  <!-- En-tête de navigation -->
+  <header class="site-header py-3">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a href="index.html" class="brand-badge" title="Accueil du portail">
+        <div class="brand-icon">
+          <img src="assets/icons/logo.svg" alt="Logo" width="22" height="22">
+        </div>
+        <span>Espace Pédagogique</span>
+      </a>
+
+      <div class="text-muted small d-none d-sm-block">
+        Portail des Cours
+      </div>
+    </div>
+  </header>
+
+  <!-- Section d'accueil (Hero) -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="teacher-chip">
+        <img src="assets/icons/badge.svg" alt="" width="16" height="16">
+        Portail des Cours d'Informatique
+      </div>
+
+      <h1 class="hero-title">
+        Bienvenue sur votre <span class="text-gradient">Espace de Cours d'Informatique</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Sélectionnez votre classe ci-dessous pour accéder directement à vos leçons, séries d'exercices, travaux
+        pratiques et ressources numériques.
+      </p>
+    </div>
+  </section>
+
+  <!-- Grille des Classes -->
+  <main class="classes-section">
+    <div class="container">
+      <div class="row g-4 justify-content-center">
+
+        <!-- 1. Classe de 2ème Année Sciences -->
+        <div class="col-12 col-md-6 col-xl-3">
+          <div class="course-card card-2sc">
+            <!-- Illustration Section Sciences -->
+            <div class="card-image-wrapper">
+              <img src="assets/img/sciences_2e.jpg" alt="Section Sciences - 2ème Année" class="card-cover-img" loading="lazy">
+              <div class="card-image-overlay"></div>
+            </div>
+
+            <div class="card-header-custom">
+              <div class="card-icon-box">
+                <img src="assets/icons/science.svg" alt="2e Sciences" width="28" height="28">
+              </div>
+              <span class="status-pill status-pending">
+                <span class="status-dot"></span>
+                Bientôt disponible
+              </span>
+            </div>
+
+            <div class="card-level">Tronc Commun Scientifique</div>
+            <h2 class="card-title-custom">2ème Année Sciences</h2>
+            <p class="card-desc">
+              Initiation à l'algorithmique, résolution de problèmes, programmation de base et culture numérique.
+            </p>
+
+            <div class="card-tags">
+              <span class="tag-item">#Algorithmique</span>
+              <span class="tag-item">#Python</span>
+              <span class="tag-item">#Bureautique</span>
+            </div>
+
+            <!-- 👉 Renseignez l'URL du cours dans href="..." -->
+            <a href="#" class="card-action-btn btn-primary-action" title="Accéder au cours 2e Sciences">
+              <span>Accéder au cours</span>
+              <img src="assets/icons/arrow-right.svg" class="btn-arrow" alt="" width="18" height="18">
+            </a>
+          </div>
+        </div>
+
+        <!-- 2. Classe de 3ème Année Techniques -->
+        <div class="col-12 col-md-6 col-xl-3">
+          <div class="course-card card-3tech">
+            <!-- Illustration Section Techniques -->
+            <div class="card-image-wrapper">
+              <img src="assets/img/techniques_3e.jpg" alt="Section Techniques - 3ème Année" class="card-cover-img" loading="lazy">
+              <div class="card-image-overlay"></div>
+            </div>
+
+            <div class="card-header-custom">
+              <div class="card-icon-box">
+                <img src="assets/icons/technique.svg" alt="3e Techniques" width="28" height="28">
+              </div>
+              <span class="status-pill status-pending">
+                <span class="status-dot"></span>
+                Bientôt disponible
+              </span>
+            </div>
+
+            <div class="card-level">Sciences Techniques</div>
+            <h2 class="card-title-custom">3ème Année Techniques</h2>
+            <p class="card-desc">
+              Systèmes automatisés, logique combinatoire & séquentielle, microcontrôleurs et programmation appliquée.
+            </p>
+
+            <div class="card-tags">
+              <span class="tag-item">#Logique</span>
+              <span class="tag-item">#Systèmes</span>
+              <span class="tag-item">#Automatisme</span>
+            </div>
+
+            <!-- 👉 Renseignez l'URL du cours dans href="..." -->
+            <a href="#" class="card-action-btn btn-primary-action" title="Accéder au cours 3e Techniques">
+              <span>Accéder au cours</span>
+              <img src="assets/icons/arrow-right.svg" class="btn-arrow" alt="" width="18" height="18">
+            </a>
+          </div>
+        </div>
+
+        <!-- 3. Classe de 3ème Année STI -->
+        <div class="col-12 col-md-6 col-xl-3">
+          <div class="course-card card-3sti">
+            <!-- Illustration Section Informatique -->
+            <div class="card-image-wrapper">
+              <img src="assets/img/informatique_3e.jpg" alt="Section Informatique - 3ème Année STI" class="card-cover-img" loading="lazy">
+              <div class="card-image-overlay"></div>
+            </div>
+
+            <div class="card-header-custom">
+              <div class="card-icon-box">
+                <img src="assets/icons/sti.svg" alt="3e STI" width="28" height="28">
+              </div>
+              <span class="status-pill status-pending">
+                <span class="status-dot"></span>
+                Bientôt disponible
+              </span>
+            </div>
+
+            <div class="card-level">Sciences de l'Informatique</div>
+            <h2 class="card-title-custom">3ème Année STI</h2>
+            <p class="card-desc">
+              Algorithmique avancée, structures de données, bases de données relationnelles et développement Web.
+            </p>
+
+            <div class="card-tags">
+              <span class="tag-item">#Algorithmique</span>
+              <span class="tag-item">#SQL</span>
+              <span class="tag-item">#Web</span>
+            </div>
+
+            <!-- 👉 Renseignez l'URL du cours dans href="..." -->
+            <a href="#" class="card-action-btn btn-primary-action" title="Accéder au cours 3e STI">
+              <span>Accéder au cours</span>
+              <img src="assets/icons/arrow-right.svg" class="btn-arrow" alt="" width="18" height="18">
+            </a>
+          </div>
+        </div>
+
+        <!-- 4. Classe de 4ème Année Sciences -->
+        <div class="col-12 col-md-6 col-xl-3">
+          <div class="course-card card-4sc">
+            <!-- Illustration Section Sciences Bac -->
+            <div class="card-image-wrapper">
+              <img src="assets/img/sciences_4e.jpg" alt="Section Sciences - 4ème Année Bac" class="card-cover-img" loading="lazy">
+              <div class="card-image-overlay"></div>
+            </div>
+
+            <div class="card-header-custom">
+              <div class="card-icon-box">
+                <img src="assets/icons/terminale.svg" alt="4e Sciences" width="28" height="28">
+              </div>
+              <span class="status-pill status-pending">
+                <span class="status-dot"></span>
+                Bientôt disponible
+              </span>
+            </div>
+
+            <div class="card-level">Classe Terminale (Bac)</div>
+            <h2 class="card-title-custom">4ème Année Sciences</h2>
+            <p class="card-desc">
+              Préparation approfondie au Baccalauréat : révision des concepts clés, épreuves pratiques et algorithmes.
+            </p>
+
+            <div class="card-tags">
+              <span class="tag-item">#Baccalauréat</span>
+              <span class="tag-item">#Annales</span>
+              <span class="tag-item">#Pratique</span>
+            </div>
+
+            <!-- 👉 Renseignez l'URL du cours dans href="..." -->
+            <a href="#" class="card-action-btn btn-primary-action" title="Accéder au cours 4e Sciences">
+              <span>Accéder au cours</span>
+              <img src="assets/icons/arrow-right.svg" class="btn-arrow" alt="" width="18" height="18">
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Section Outils & Liens Pratiques -->
+  <section class="tools-section">
+    <div class="container">
+      <div class="text-center mb-4">
+        <span class="section-subtitle-pill">Boîte à outils</span>
+        <h2 class="section-header-title">Ressources Utiles pour les Élèves</h2>
+      </div>
+
+      <div class="row g-3 justify-content-center">
+        <!-- Outil 1 : Python -->
+        <div class="col-12 col-md-4">
+          <a href="https://www.programiz.com/python-programming/online-compiler/" target="_blank"
+            rel="noopener noreferrer" class="tool-card">
+            <div class="tool-icon">
+              <img src="assets/icons/terminal.svg" alt="Compilateur Python" width="22" height="22">
+            </div>
+            <div>
+              <div class="tool-title">Compilateur Python en Ligne</div>
+              <p class="tool-desc">Testez vos scripts algorithmiques directement dans le navigateur.</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- Outil 2 : Simulateur Logique -->
+        <div class="col-12 col-md-4">
+          <a href="https://logic.ly/demo/" target="_blank" rel="noopener noreferrer" class="tool-card">
+            <div class="tool-icon">
+              <img src="assets/icons/cpu.svg" alt="Simulateur Logique" width="22" height="22">
+            </div>
+            <div>
+              <div class="tool-title">Simulateur Logique (Logicly)</div>
+              <p class="tool-desc">Expérimentez les portes logiques et tables de vérité en ligne.</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- Outil 3 : W3Schools -->
+        <div class="col-12 col-md-4">
+          <a href="https://www.w3schools.com/" target="_blank" rel="noopener noreferrer" class="tool-card">
+            <div class="tool-icon">
+              <img src="assets/icons/book.svg" alt="Documentation Web" width="22" height="22">
+            </div>
+            <div>
+              <div class="tool-title">W3Schools (Tutoriels Web & SQL)</div>
+              <p class="tool-desc">Fiches de référence simples pour HTML, CSS, JavaScript et SQL.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pied de page -->
+  <footer class="site-footer">
+    <div
+      class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 text-center text-md-start">
+      <div>
+        <strong>Portail Pédagogique Lycée</strong> &copy; Tous droits réservés
+      </div>
+      <div>
+        <span class="text-light">Classes : 2e Sc • 3e Tech • 3e STI • 4e Sc</span>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

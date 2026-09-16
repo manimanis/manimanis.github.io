@@ -1,0 +1,732 @@
+/* ==========================================================================
+   PORTAIL PÉDAGOGIQUE - STYLES PRINCIPAUX
+   Thème : Moderne, Technologique, Épuré & Réactif
+   ========================================================================== */
+
+:root {
+  /* Palette de couleurs principale */
+  --bg-main: #0b0f19;
+  --bg-surface: rgba(17, 24, 39, 0.75);
+  --bg-card: rgba(22, 31, 48, 0.7);
+  --bg-card-hover: rgba(30, 41, 64, 0.85);
+  --text-main: #f3f4f6;
+  --text-muted: #9ca3af;
+  --text-light: #6b7280;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-highlight: rgba(255, 255, 255, 0.18);
+  
+  /* Thèmes par filière */
+  --c-2sc-start: #06b6d4;
+  --c-2sc-end: #10b981;
+  --c-2sc-glow: rgba(16, 185, 129, 0.25);
+
+  --c-3tech-start: #f59e0b;
+  --c-3tech-end: #ea580c;
+  --c-3tech-glow: rgba(245, 158, 11, 0.25);
+
+  --c-3sti-start: #6366f1;
+  --c-3sti-end: #9333ea;
+  --c-3sti-glow: rgba(147, 51, 234, 0.25);
+
+  --c-4sc-start: #ec4899;
+  --c-4sc-end: #ef4444;
+  --c-4sc-glow: rgba(239, 68, 68, 0.25);
+
+  /* Effets & Rayons */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --glass-blur: blur(16px);
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Mode Clair optionnel via attribut data-theme="light" */
+[data-theme="light"] {
+  --bg-main: #f8fafc;
+  --bg-surface: rgba(255, 255, 255, 0.85);
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --bg-card-hover: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-light: #94a3b8;
+  --border-color: rgba(0, 0, 0, 0.08);
+  --border-highlight: rgba(0, 0, 0, 0.15);
+}
+
+/* ==========================================================================
+   RESET & BASE
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Arrière-plan dynamique avec halos lumineux */
+.ambient-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.35;
+  animation: floatOrb 18s ease-in-out infinite alternate;
+}
+
+.glow-1 {
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, #6366f1 0%, transparent 70%);
+  top: -100px;
+  left: -100px;
+}
+
+.glow-2 {
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, #06b6d4 0%, transparent 70%);
+  bottom: -150px;
+  right: -100px;
+  animation-duration: 24s;
+}
+
+.glow-3 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #ec4899 0%, transparent 70%);
+  top: 40%;
+  left: 60%;
+  animation-duration: 20s;
+}
+
+@keyframes floatOrb {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, 60px) scale(1.08); }
+  100% { transform: translate(-30px, -40px) scale(0.95); }
+}
+
+/* ==========================================================================
+   NAVIGATION & EN-TÊTE
+   ========================================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-color);
+  transition: var(--transition-smooth);
+}
+
+.brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--text-main);
+  text-decoration: none;
+}
+
+.brand-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #6366f1, #06b6d4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+}
+
+.theme-toggle-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.theme-toggle-btn:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-highlight);
+  transform: rotate(15deg);
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+
+.hero-section {
+  position: relative;
+  z-index: 1;
+  padding: 3.5rem 0 2rem;
+  text-align: center;
+}
+
+.teacher-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  color: #818cf8;
+  border-radius: 50px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--text-muted);
+  max-width: 680px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+/* Barre de recherche et filtres */
+.search-wrapper {
+  max-width: 580px;
+  margin: 0 auto 1.5rem;
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.875rem 1.25rem 0.875rem 3rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 50px;
+  color: var(--text-main);
+  font-size: 0.95rem;
+  backdrop-filter: var(--glass-blur);
+  transition: var(--transition-smooth);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+  background: var(--bg-card-hover);
+}
+
+.search-icon {
+  position: absolute;
+  left: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-light);
+  pointer-events: none;
+}
+
+.clear-search-btn {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--text-light);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clear-search-btn:hover {
+  color: var(--text-main);
+}
+
+/* ==========================================================================
+   GRILLE DES COURS (CARTES DE CLASSE)
+   ========================================================================== */
+
+.classes-section {
+  position: relative;
+  z-index: 1;
+  padding: 1.5rem 0 4rem;
+  flex: 1;
+}
+
+.course-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.75rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  transition: var(--transition-smooth);
+  overflow: hidden;
+}
+
+.course-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  z-index: 3;
+  transition: var(--transition-smooth);
+}
+
+/* Image d'illustration de section */
+.card-image-wrapper {
+  position: relative;
+  width: calc(100% + 3.5rem);
+  margin-top: -2rem;
+  margin-left: -1.75rem;
+  margin-right: -1.75rem;
+  margin-bottom: 1.25rem;
+  height: 160px;
+  overflow: hidden;
+  border-top-left-radius: var(--radius-lg);
+  border-top-right-radius: var(--radius-lg);
+}
+
+.card-cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+}
+
+.course-card:hover .card-cover-img {
+  transform: scale(1.08);
+}
+
+.card-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11, 15, 25, 0.15) 0%, rgba(22, 31, 48, 0.88) 100%);
+  pointer-events: none;
+}
+
+[data-theme="light"] .card-image-overlay {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.9) 100%);
+}
+
+/* Variantes par filière */
+.course-card.card-2sc::before {
+  background: linear-gradient(90deg, var(--c-2sc-start), var(--c-2sc-end));
+}
+.course-card.card-2sc:hover {
+  border-color: var(--c-2sc-start);
+  box-shadow: 0 16px 32px var(--c-2sc-glow);
+  transform: translateY(-8px);
+}
+
+.course-card.card-3tech::before {
+  background: linear-gradient(90deg, var(--c-3tech-start), var(--c-3tech-end));
+}
+.course-card.card-3tech:hover {
+  border-color: var(--c-3tech-start);
+  box-shadow: 0 16px 32px var(--c-3tech-glow);
+  transform: translateY(-8px);
+}
+
+.course-card.card-3sti::before {
+  background: linear-gradient(90deg, var(--c-3sti-start), var(--c-3sti-end));
+}
+.course-card.card-3sti:hover {
+  border-color: var(--c-3sti-start);
+  box-shadow: 0 16px 32px var(--c-3sti-glow);
+  transform: translateY(-8px);
+}
+
+.course-card.card-4sc::before {
+  background: linear-gradient(90deg, var(--c-4sc-start), var(--c-4sc-end));
+}
+.course-card.card-4sc:hover {
+  border-color: var(--c-4sc-start);
+  box-shadow: 0 16px 32px var(--c-4sc-glow);
+  transform: translateY(-8px);
+}
+
+/* En-tête de la carte */
+.card-header-custom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  position: relative;
+  z-index: 2;
+}
+
+.card-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #fff;
+  transition: var(--transition-smooth);
+  margin-top: -36px;
+  position: relative;
+  z-index: 2;
+  border: 2px solid var(--bg-card);
+}
+
+.brand-icon img,
+.card-icon-box img,
+.tool-icon img {
+  display: block;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.course-card.card-2sc .card-icon-box {
+  background: linear-gradient(135deg, var(--c-2sc-start), var(--c-2sc-end));
+  box-shadow: 0 6px 16px var(--c-2sc-glow);
+}
+.course-card.card-3tech .card-icon-box {
+  background: linear-gradient(135deg, var(--c-3tech-start), var(--c-3tech-end));
+  box-shadow: 0 6px 16px var(--c-3tech-glow);
+}
+.course-card.card-3sti .card-icon-box {
+  background: linear-gradient(135deg, var(--c-3sti-start), var(--c-3sti-end));
+  box-shadow: 0 6px 16px var(--c-3sti-glow);
+}
+.course-card.card-4sc .card-icon-box {
+  background: linear-gradient(135deg, var(--c-4sc-start), var(--c-4sc-end));
+  box-shadow: 0 6px 16px var(--c-4sc-glow);
+}
+
+.course-card:hover .card-icon-box {
+  transform: scale(1.08) rotate(3deg);
+}
+
+/* Statut et badges */
+.status-pill {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-active {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.status-pending {
+  background: rgba(245, 158, 11, 0.12);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+.status-active .status-dot {
+  animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* Contenu textuel */
+.card-level {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.35rem;
+  color: var(--text-muted);
+}
+
+.card-title-custom {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text-main);
+  line-height: 1.3;
+}
+
+.card-desc {
+  font-size: 0.925rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+/* Tags de chapitres / mots-clés */
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 1.75rem;
+}
+
+.tag-item {
+  font-size: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  padding: 3px 8px;
+  border-radius: 6px;
+  color: var(--text-muted);
+}
+
+/* Bouton d'action principal */
+.card-action-btn {
+  width: 100%;
+  padding: 0.8rem 1.25rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: var(--transition-smooth);
+}
+
+.btn-primary-action {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-main);
+  border-color: var(--border-color);
+}
+
+.course-card:hover .btn-primary-action {
+  background: var(--text-main);
+  color: var(--bg-main);
+  border-color: var(--text-main);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.btn-arrow {
+  transition: transform 0.2s ease;
+}
+
+.course-card:hover .btn-arrow {
+  transform: translateX(5px);
+}
+
+/* Message si aucun résultat de recherche */
+.no-results {
+  text-align: center;
+  padding: 4rem 1rem;
+  color: var(--text-muted);
+}
+
+.no-results-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.6;
+}
+
+/* ==========================================================================
+   SECTION OUTILS & RESSOURCES RAPIDES
+   ========================================================================== */
+
+.tools-section {
+  position: relative;
+  z-index: 1;
+  padding: 2.5rem 0 3.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.section-subtitle-pill {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #818cf8;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.section-header-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  color: var(--text-main);
+}
+
+.tool-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--text-main);
+  transition: var(--transition-smooth);
+  height: 100%;
+}
+
+.tool-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-highlight);
+  transform: translateY(-4px);
+  color: var(--text-main);
+}
+
+.tool-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: rgba(99, 102, 241, 0.15);
+  color: #818cf8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tool-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 0.2rem;
+}
+
+.tool-desc {
+  font-size: 0.825rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   PIED DE PAGE
+   ========================================================================== */
+
+.site-footer {
+  position: relative;
+  z-index: 1;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border-color);
+  padding: 2.5rem 0;
+  margin-top: auto;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.footer-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-link:hover {
+  color: var(--text-main);
+}
+
+/* ==========================================================================
+   MODAL & TOAST D'ALERTE (LIEN EN COURS)
+   ========================================================================== */
+
+.custom-toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1080;
+}
+
+.toast-custom {
+  background: var(--bg-surface);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-highlight);
+  border-radius: var(--radius-md);
+  color: var(--text-main);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.toast-custom .toast-header {
+  background: transparent;
+  color: var(--text-main);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* ==========================================================================
+   RESPONSIVE OPTIMISATIONS
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 2.5rem 0 1.5rem;
+  }
+  .course-card {
+    padding: 1.5rem 1.25rem;
+  }
+  .card-title-custom {
+    font-size: 1.2rem;
+  }
+  .custom-toast-container {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+  }
+}
